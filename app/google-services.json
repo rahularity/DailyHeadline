@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "260119428063",
+    "firebase_url": "https://dailyheadline-e5947.firebaseio.com",
+    "project_id": "dailyheadline-e5947",
+    "storage_bucket": "dailyheadline-e5947.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:260119428063:android:b42b4dfd9fc7c7a7",
+        "android_client_info": {
+          "package_name": "com.dailyheadline.msit.rahul.dailyheadline"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "260119428063-nbl74t10997t38jtvaoq9nosbb76fbj7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.dailyheadline.msit.rahul.dailyheadline",
+            "certificate_hash": "b0439295a5a05c1fe7693f28b52f2fa3aeb8f516"
+          }
+        },
+        {
+          "client_id": "260119428063-s3o5pf3m529h6qvih7s50euie04i0rrm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDm_mtOxHhsISIKxiVNwFsrWVojbK4zMZo"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "260119428063-s3o5pf3m529h6qvih7s50euie04i0rrm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
