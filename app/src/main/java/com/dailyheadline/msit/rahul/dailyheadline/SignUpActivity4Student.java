@@ -14,11 +14,17 @@ public class SignUpActivity4Student extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up_activity4_student);
 
-        final Spinner year = (Spinner) findViewById(R.id.year);
-        ArrayAdapter<CharSequence> YearAdapter = ArrayAdapter.createFromResource(this,
-                R.array.year, R.layout.dropdown_look);
-        YearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        year.setAdapter(YearAdapter);
+//        final Spinner year = (Spinner) findViewById(R.id.year);
+//        ArrayAdapter<CharSequence> YearAdapter = ArrayAdapter.createFromResource(this,
+//                R.array.year, R.layout.dropdown_look);
+//        YearAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//        year.setAdapter(YearAdapter);
+
+        final Spinner sem = (Spinner) findViewById(R.id.sem);
+        ArrayAdapter<CharSequence> SemAdapter = ArrayAdapter.createFromResource(this,
+                R.array.sem, R.layout.dropdown_look);
+        SemAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        sem.setAdapter(SemAdapter);
 
         final Spinner branch = (Spinner) findViewById(R.id.branch);
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
