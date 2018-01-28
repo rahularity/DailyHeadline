@@ -9,6 +9,11 @@ import android.widget.Button;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class WelcomeScreen extends AppCompatActivity {
 
@@ -20,11 +25,6 @@ public class WelcomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_welcome_screen);
 
         mAuth = FirebaseAuth.getInstance();
-
-        if(mAuth.getCurrentUser() != null) {
-            startActivity(new Intent(WelcomeScreen.this, MainActivity.class));
-            finish();
-        }
 
         Button signUp = (Button) findViewById(R.id.sign_up);
         Button login = (Button) findViewById(R.id.login);
@@ -44,14 +44,33 @@ public class WelcomeScreen extends AppCompatActivity {
         });
     }
 
-//    @Override
-//    protected void onStart() {
-//        super.onStart();
-//
-//        if(mAuth.getCurrentUser() != null) {
-//            startActivity(new Intent(WelcomeScreen.this, MainActivity.class));
-//            finish();
-//        }
-//    }
+    @Override
+    protected void onStart() {
+        super.onStart();
+
+        if(mAuth.getCurrentUser() != null) {
+
+            String uid = mAuth.getCurrentUser().getUid();
+            DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("users").child(uid);
+
+            userRef.addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    if(dataSnapshot.exists()){
+                        startActivity(new Intent(WelcomeScreen.this, MainActivity.class));
+                        finish();
+                    }else{
+                        startActivity(new Intent(WelcomeScreen.this,SignUpActivity3.class));
+                        finish();
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+
+                }
+            });
+        }
+    }
 
 }

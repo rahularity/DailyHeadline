@@ -19,7 +19,7 @@ public class SignUpActivity3 extends AppCompatActivity{
         setContentView(R.layout.activity_sign_up3);
 
 
-        final Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        final Spinner spinner = (Spinner) findViewById(R.id.profession_spinner);
         // Create an ArrayAdapter using the string array and a default spinner layout
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.profession_name, R.layout.dropdown_look);
@@ -35,9 +35,9 @@ public class SignUpActivity3 extends AppCompatActivity{
             public void onClick(View view) {
                 String profession = spinner.getSelectedItem().toString();
                 if(Objects.equals(profession, "Student"))
-                startActivity(new Intent(SignUpActivity3.this, SignUpActivity4Student.class));
+                    startActivity(new Intent(SignUpActivity3.this, SignUpActivity4Student.class).putExtra("profession",profession));
                 else
-                    startActivity(new Intent(SignUpActivity3.this, SignUpActivity4Teacher.class));
+                    startActivity(new Intent(SignUpActivity3.this, SignUpActivity4Teacher.class).putExtra("profession",profession));
             }
         });
     }

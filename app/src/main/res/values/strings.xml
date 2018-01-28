@@ -6,28 +6,26 @@
         <item>Teacher</item>
     </string-array>
 
-    <string-array name="sem">
-        <item>1st</item>
-        <item>2nd</item>
-        <item>3rd</item>
-        <item>4th</item>
-        <item>5th</item>
-        <item>6th</item>
-        <item>7th</item>
-        <item>8th</item>
+    <string-array name="college_name">
+        <item>MSIT</item>
     </string-array>
 
-    <!--<string-array name="year">-->
-        <!--<item>1st Year</item>-->
-        <!--<item>2nd Year</item>-->
-        <!--<item>3rd Year</item>-->
-        <!--<item>4th Year</item>-->
-    <!--</string-array>-->
+    <string-array name="year">
+        <item>1st Sem</item>
+        <item>2nd Sem</item>
+        <item>3rd Sem</item>
+        <item>4th Sem</item>
+        <item>5th Sem</item>
+        <item>6th Sem</item>
+        <item>7th Sem</item>
+        <item>8th Sem</item>
+    </string-array>
 
     <string-array name="branch">
-        <item>CSE</item>
-        <item>ECE</item>
-        <item>MAE</item>
+        <item>CSE-1</item>
+        <item>CSE-2</item>
+        <item>ECE-1</item>
+        <item>ECE-2</item>
         <item>IT</item>
         <item>EEE</item>
     </string-array>
