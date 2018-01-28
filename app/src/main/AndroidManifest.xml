@@ -12,20 +12,21 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".MainActivity" />
-        <activity android:name=".WelcomeScreen">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".WelcomeScreen"></activity>
         <activity android:name=".SignUpActivity1" />
         <activity android:name=".LoginActivity" />
         <activity android:name=".SignUpActivity2" />
         <activity android:name=".SignUpActivity3" />
         <activity android:name=".SignUpActivity4Student" />
         <activity android:name=".SignUpActivity4Teacher" />
-        <activity android:name=".AddWorkActivity"></activity>
+        <activity android:name=".AddWorkActivity" />
+        <activity android:name=".SplashScreenActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>

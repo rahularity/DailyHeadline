@@ -1,5 +1,6 @@
 package com.dailyheadline.msit.rahul.dailyheadline;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -23,6 +25,7 @@ import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity {
 
+    private ProgressBar progressBar;
     private FirebaseAuth mAuth;
     private EditText emailbox;
     private EditText passwordbox;
@@ -33,6 +36,9 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
         mAuth = FirebaseAuth.getInstance();
+
+        progressBar = (ProgressBar)findViewById(R.id.progress);
+        progressBar.setVisibility(View.GONE);
 
         Button login = (Button)findViewById(R.id.loginButton);
         emailbox = (EditText)findViewById(R.id.email);
@@ -48,6 +54,8 @@ public class LoginActivity extends AppCompatActivity {
     }
 
     private void loginCheck() {
+        progressBar.setVisibility(View.VISIBLE);
+
         String email  = emailbox.getText().toString();
         String password = passwordbox.getText().toString();
         mAuth.signInWithEmailAndPassword(email, password)
@@ -62,8 +70,10 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         else{
                             //Log.w(TAG, "signInWithEmail:failure", task.getException());
+                            progressBar.setVisibility(View.GONE);
                             Toast.makeText(LoginActivity.this, "Authentication failed.",
                                     Toast.LENGTH_SHORT).show();
+
                         }
                     }
                 });
@@ -74,15 +84,20 @@ public class LoginActivity extends AppCompatActivity {
 
         String uid = user.getUid();
         DatabaseReference userRef = FirebaseDatabase.getInstance().getReference().child("users").child(uid);
+        progressBar.setVisibility(View.GONE);
 
         userRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 if(dataSnapshot.exists()){
-                    startActivity(new Intent(LoginActivity.this, MainActivity.class));
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
                     finish();
                 }else{
-                    startActivity(new Intent(LoginActivity.this,SignUpActivity3.class));
+                    Intent intent = new Intent(LoginActivity.this,SignUpActivity3.class);
+                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                    startActivity(intent);
                     finish();
                 }
             }

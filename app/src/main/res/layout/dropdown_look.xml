@@ -5,6 +5,7 @@
     android:layout_marginStart="8dp"
     android:layout_marginTop="8dp"
     android:text="TextView"
+    android:textColor="#696969"
     android:textStyle="bold"
     android:textSize="30sp"
     app:layout_constraintEnd_toEndOf="parent"

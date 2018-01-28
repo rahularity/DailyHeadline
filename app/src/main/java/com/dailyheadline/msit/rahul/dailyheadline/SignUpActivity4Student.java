@@ -3,6 +3,7 @@ package com.dailyheadline.msit.rahul.dailyheadline;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -21,8 +22,7 @@ public class SignUpActivity4Student extends AppCompatActivity {
     private FirebaseAuth mAuth;
     private Spinner semester, branch, college;
     private EditText fullName, class_serial_no;
-    String fullName_val, college_val, semester_val, branch_val, profession_val;
-    int classSerial_val;
+    String fullName_val, college_val, semester_val, branch_val, profession_val, classSerial_val;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,14 +71,14 @@ public class SignUpActivity4Student extends AppCompatActivity {
 
         //---------------getting values from every info column----------------------------------------//
         fullName_val = fullName.getText().toString().trim();
-        classSerial_val = Integer.parseInt(class_serial_no.getText().toString().trim());
+        classSerial_val = class_serial_no.getText().toString().trim();
         semester_val = semester.getSelectedItem().toString();
         branch_val = branch.getSelectedItem().toString();
         college_val = college.getSelectedItem().toString();
         profession_val = getIntent().getStringExtra("profession");
         //--------------------------------------------------------------------------------------------//
 
-        if(fullName_val.isEmpty()){
+        if(TextUtils.isEmpty(fullName_val)){
             Toast.makeText(SignUpActivity4Student.this, "Please write your name", Toast.LENGTH_SHORT).show();
         }else{
             String uid = mAuth.getCurrentUser().getUid();
@@ -99,8 +99,10 @@ public class SignUpActivity4Student extends AppCompatActivity {
                 mainUserRef.child("college").setValue(college_val);
                 mainUserRef.child("profession").setValue(profession_val);
 
-            startActivity(new Intent(SignUpActivity4Student.this,MainActivity.class));
-
+            Intent intent = new Intent(SignUpActivity4Student.this,MainActivity.class);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+            startActivity(intent);
+            finish();
         }
     }
 }

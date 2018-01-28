@@ -11,14 +11,14 @@
     </string-array>
 
     <string-array name="year">
-        <item>1st Sem</item>
-        <item>2nd Sem</item>
-        <item>3rd Sem</item>
-        <item>4th Sem</item>
-        <item>5th Sem</item>
-        <item>6th Sem</item>
-        <item>7th Sem</item>
-        <item>8th Sem</item>
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
     </string-array>
 
     <string-array name="branch">

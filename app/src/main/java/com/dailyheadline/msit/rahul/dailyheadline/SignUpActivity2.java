@@ -1,5 +1,6 @@
 package com.dailyheadline.msit.rahul.dailyheadline;
 
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
@@ -7,6 +8,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -18,6 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class SignUpActivity2 extends AppCompatActivity {
 
+    private ProgressBar progressBar;
     private FirebaseAuth mAuth;
     private EditText passwordBox;
 
@@ -28,12 +31,16 @@ public class SignUpActivity2 extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
 
+        progressBar = (ProgressBar)findViewById(R.id.progress);
+        progressBar.setVisibility(View.GONE);
+
         passwordBox = (EditText)findViewById(R.id.password) ;
 
         Button next = (Button)findViewById(R.id.passwordNext);
         next.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                progressBar.setVisibility(View.VISIBLE);
                 nextStep();
             }
         });
@@ -55,6 +62,7 @@ public class SignUpActivity2 extends AppCompatActivity {
 
                         } else {
 
+                            progressBar.setVisibility(View.GONE);
                             if (task.getException() instanceof FirebaseAuthUserCollisionException) {
                                 Toast.makeText(SignUpActivity2.this, "User with this email already exist.", Toast.LENGTH_SHORT).show();
                                 startActivity(new Intent(SignUpActivity2.this, LoginActivity.class));
@@ -71,7 +79,10 @@ public class SignUpActivity2 extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser user) {
-        startActivity(new Intent(SignUpActivity2.this, SignUpActivity3.class));
+        progressBar.setVisibility(View.GONE);
+        Intent intent = new Intent(SignUpActivity2.this, SignUpActivity3.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
         finish();
     }
 

@@ -94,7 +94,7 @@
                 android:layout_marginTop="5dp"
                 android:hint="Topics"
                 android:inputType="textMultiLine|textCapSentences"
-                android:textSize="30sp"
+                android:textSize="26sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -116,7 +116,7 @@
                 android:layout_marginTop="5dp"
                 android:hint="Subject"
                 android:inputType="textCapWords"
-                android:textSize="30sp"
+                android:textSize="26sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -177,7 +177,7 @@
                 android:layout_marginTop="5dp"
                 android:hint="Information"
                 android:inputType="textLongMessage|textCapSentences|textMultiLine"
-                android:textSize="30sp"
+                android:textSize="26sp"
                 android:textStyle="bold" />
 
             <TextView
@@ -199,7 +199,7 @@
                 android:layout_marginTop="5dp"
                 android:hint="links"
                 android:inputType="textMultiLine"
-                android:textSize="30sp"
+                android:textSize="26sp"
                 android:textStyle="bold" />
 
             <TextView

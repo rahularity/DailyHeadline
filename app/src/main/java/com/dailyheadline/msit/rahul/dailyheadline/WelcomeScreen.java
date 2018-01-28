@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -25,6 +26,13 @@ public class WelcomeScreen extends AppCompatActivity {
         setContentView(R.layout.activity_welcome_screen);
 
         mAuth = FirebaseAuth.getInstance();
+
+
+
+       // Toast.makeText(WelcomeScreen.this,"rahul pandey",Toast.LENGTH_LONG).show();
+       // Toast.makeText(WelcomeScreen.this,mAuth.getCurrentUser().getUid().toString(),Toast.LENGTH_LONG).show();
+
+
 
         Button signUp = (Button) findViewById(R.id.sign_up);
         Button login = (Button) findViewById(R.id.login);
@@ -47,6 +55,7 @@ public class WelcomeScreen extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
+
 
         if(mAuth.getCurrentUser() != null) {
 
