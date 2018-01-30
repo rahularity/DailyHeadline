@@ -83,6 +83,7 @@ public class AddWorkActivity extends AppCompatActivity {
         newPost.child("subject").setValue(subject_val);
         newPost.child("info").setValue(info_val);
         newPost.child("links").setValue(links_val);
+        newPost.child("teacherName").setValue(mAuth.getCurrentUser().getDisplayName());
         //newPost.child("sem").setValue(sem_val);
         //newPost.child("branch").setValue(branch_val);
         newPost.child("uid").setValue(uid);

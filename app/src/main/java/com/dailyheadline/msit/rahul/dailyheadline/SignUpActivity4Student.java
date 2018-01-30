@@ -12,6 +12,8 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -98,6 +100,10 @@ public class SignUpActivity4Student extends AppCompatActivity {
                 mainUserRef.child("branch").setValue(branch_val);
                 mainUserRef.child("college").setValue(college_val);
                 mainUserRef.child("profession").setValue(profession_val);
+
+            UserProfileChangeRequest profileUpdates = new UserProfileChangeRequest.Builder()
+                    .setDisplayName(fullName_val).build();
+            mAuth.getCurrentUser().updateProfile(profileUpdates);
 
             Intent intent = new Intent(SignUpActivity4Student.this,MainActivity.class);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
